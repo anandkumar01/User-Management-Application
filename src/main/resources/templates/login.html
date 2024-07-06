@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div class="wrapper">
+  <span class="bg-animate"></span>
+  <div class="form-box login">
+    <h2>Login</h2>
+    <form action="#">
+      <div class="input-box">
+        <input type="text" name="name" required>
+        <label>Username</label>
+        <i class='bx bx-user'></i>
+      </div>
+      <div class="input-box">
+        <input type="password" id="password" name="password" required>
+        <label>Password</label>
+        <i class='bx bx-lock-alt' id="lockicon"></i>
+      </div>
+      <button type="submit" class="btn">Sign In</button>
+      <div class="logreg-link">
+        <p>Don't have an account? <a href="/register" class="register-link">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+  <div class="info-text login">
+    <h2>Welcome</h2>
+    <h2>to ABESEC</h2>
+    <p>ABES Engineering College welcomes you with warm regards.</p>
+  </div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
