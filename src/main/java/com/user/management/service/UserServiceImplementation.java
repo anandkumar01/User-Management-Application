@@ -13,12 +13,21 @@ public class UserServiceImplementation implements UserService{
 
     @Override
     public UserDetails createUser(UserDetails user) {
-
         return userRepository.save(user);
     }
 
     @Override
     public boolean checkEmail(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    @Override
+    public UserDetails validateUser(String email, String password) {
+        UserDetails user = userRepository.findByEmail(email);
+        if (user != null && user.getPassword().equals(password)) {
+            return user;
+        } else {
+            return null;
+        }
     }
 }

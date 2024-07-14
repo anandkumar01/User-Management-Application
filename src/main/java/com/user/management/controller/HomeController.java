@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
@@ -45,5 +46,22 @@ public class HomeController {
             }
         }
         return "redirect:/register";
+    }
+
+    @PostMapping("/loginUser")
+    public String loginUser(@RequestParam String email, @RequestParam String password, HttpSession session) {
+        UserDetails user = userService.validateUser(email, password);
+        if (user != null) {
+            session.setAttribute("user", user);
+            return "redirect:/dashboard";
+        } else {
+            session.setAttribute("message", "Invalid credentials.");
+            return "redirect:/login";
+        }
+    }
+
+    @PostMapping("/dashboard")
+    public String dashboard(){
+        return "dashboard";
     }
 }
